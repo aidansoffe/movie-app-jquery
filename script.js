@@ -1,23 +1,23 @@
 
-    var movies = [
-]
-    var lastAdded = -2
-$(function() {
+    var movies = [];
+    var obj = {}
  
-  $('button').click(function() {
+  $('.submit').click(function() {
+   
+  $('.grab').each(function() {
+    var titles =  $(this).attr('title')
+    var ratings =  $(this).attr('rating')
+    console.log('----> title', titles)
+    console.log('---rating', ratings)
+//  obj[$(elem).val()] = $(elem).val()
+ movies.push({titles, ratings})
+   console.log('-----> obj', movies)
+  })
 
-    $('input[name^=tittle]').each(function(){
-     
-      movies.push($(this).val())
-      lastAdded++
-      $(this).val("")
-    });
+})
 
-    $('ul').append('<li>' + movies[lastAdded]+ " - " + movies[lastAdded + 1] + "  <span><i class='fa fa-trash'></i></span>")
-    
-  });
-console.log('movies>', movies)
-});
+    // $('ul').append('<li>' + $(this).title + " - " + $(this).rating + "  <span><i class='fa fa-trash'></i></span>")
+  
 
 
 
@@ -33,12 +33,6 @@ $('ul').on("click", "span", function(){
 //   }))
 // })
 
-// points.sort(function(a, b){return a-b});
-
-// movies.sort(function(a,b){ return a > b});
-
-// movies = [{ name: "harry potter, rating: 5 }, {name: "Speed", rating: 3}]
-
 // // movies sort by alphabetical
 // movies.sort(function(a,b){
 //   return a.name > b.name
@@ -48,3 +42,7 @@ $('ul').on("click", "span", function(){
 // movies.sort(function(a,b){
 //   return a.rating > b.rating
 // })
+
+
+
+// console.log(data)
