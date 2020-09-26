@@ -1,32 +1,38 @@
 
-    var movies = [];
-    var obj = {}
- 
-  $('.submit').click(function() {
-   
-  $('.grab').each(function() {
-    var titles =  $(this).attr('title')
-    var ratings =  $(this).attr('rating')
-    console.log('----> title', titles)
-    console.log('---rating', ratings)
-//  obj[$(elem).val()] = $(elem).val()
- movies.push({titles, ratings})
-   console.log('-----> obj', movies)
+var movies = []
+
+$(function() {
+
+$('.submit').click(function() {
+
+ movies.push($('.movie-name').map(function(){
+ return {
+   name: $(this).val(),
+   rating: $(this).next('.movie-rating').val()
+ };
+}).get())
+$.each(movies, function(index, val){
+  $.each(val, function(i, va){
+    console.log('name: ', va.name, 'rating: ', va.rating, 'movies:', movies)
+    // $('ul')('<li>' + va.name + " - " + va.rating + "  <span><i class='fa fa-trash'></i></span>")
   })
-
-})
-
-    // $('ul').append('<li>' + $(this).title + " - " + $(this).rating + "  <span><i class='fa fa-trash'></i></span>")
   
+    
+  })
+});
+
+
+
+});
+
 
 
 
 $('ul').on("click", "span", function(){
-  $(this).parent().fadeOut(300, function(){
-    $(this).remove();
-  })
+$(this).parent().fadeOut(500, function(){
+$(this).remove();
 })
-
+})
 // $(function(){
 //   $('.sorting').on(click(function(){
 //     $('ul').sort()
