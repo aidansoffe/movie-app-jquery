@@ -9,11 +9,12 @@ $(function () {
       return {
         name: $(this).val(),
         rating: $(this).next('.movie-rating').val()
-
       };
-
+      
     }).get())
+    $('#grab1 ,#grab2').val('');
 
+    $('ul').empty()
     $.each(movies, function (index, val) {
       $.each(val, function (i, va) {
 
@@ -22,9 +23,7 @@ $(function () {
     })
     console.log(movies)
   });
-
-
-
+  
 });
 
 
