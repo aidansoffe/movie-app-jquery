@@ -1,5 +1,11 @@
 
-var movies = []
+// array for storing 2 inputs
+var movies=[]
+
+
+// on submit click join 2 input values
+// clear input values after each submition
+// append new list with value to ul  
 
 $(function () {
 
@@ -12,6 +18,8 @@ $(function () {
       };
       
     }).get())
+    console.log('should be array of obj',movies)
+
     $('#grab1 ,#grab2').val('');
 
     $('ul').empty()
@@ -21,32 +29,28 @@ $(function () {
         $('ul').append(`<li>  ${va.name} - ${va.rating}  <span><i class='fa fa-trash'></i></span>`)
       })
     })
-    console.log(movies)
   });
-  
+
+
+
+    $('.sorting').change(function(){
+      console.log('sorted')
+      $.each(movies, function (i, v){
+        v.sort(function (a, b) {
+          return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0); 
+      });
+      console.log("after:", movies)
+      })
+    })
+    
+
 });
 
-
+// list delete button 
 $('ul').on("click", "span", function () {
   $(this).parent().fadeOut(400, function () {
     $(this).remove();
   })
-})
+});
 
 
-// $(function(){
-//   $('.sorting').on(click(function(){
-//     if(movies.name)
-//     movies.sort(function(a,b){
-//       return a.name > b.name
-//     })
-//   }))
-// })
-
-// // movies sort by alphabetical
-
-
-// // movies sort by rating
-// movies.sort(function(a,b){
-//   return a.rating > b.rating
-// })
