@@ -17,32 +17,40 @@ $(function () {
         rating: $(this).next('.movie-rating').val()
       };
       
-    }).get())
-    console.log('should be array of obj',movies)
+    }).get())  
 
     $('#grab1 ,#grab2').val('');
-
-    $('ul').empty()
-    $.each(movies, function (index, val) {
-      $.each(val, function (i, va) {
-
-        $('ul').append(`<li>  ${va.name} - ${va.rating}  <span><i class='fa fa-trash'></i></span>`)
-      })
-    })
+    
+    display();
   });
 
 
 
-    $('.sorting').change(function(){
-      console.log('sorted')
-      $.each(movies, function (i, v){
-        v.sort(function (a, b) {
-          return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0); 
-      });
-      console.log("after:", movies)
-      })
+//display to ul
+function display(){
+  $('ul').empty()
+  $.each(movies, function (index, val) {
+    $.each(val, function (i, va) {
+
+      $('ul').append(`<li>  ${va.name} - ${va.rating}  <span><i class='fa fa-trash'></i></span>`)
     })
+  })
+}
+
+
+
+//sorting from a-z
+    $('.sorting').click(function(){
+    movies.sort(function(a,b){
+          // return (a.title - b.title) ? 1 : -1 
+          return a[0].name.localeCompare(b[0].name)
+      });
+      display();
+      })
+
     
+
+
 
 });
 
