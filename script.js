@@ -26,18 +26,12 @@ $(function () {
       );
     }
     
-
     $("#grab1 ,#grab2").val("");
 
-    // NOTE: you *also* need to do sorting inside this function
-    // sortMovies();  //tbh i didnt understand this part, why shoould we insert sortMovies() because its working without it )) ?
     display();
   });
-
-
- 
-
 });
+
 
 // when sort button is clicked
   $('#sorting').change(function () {
@@ -78,8 +72,6 @@ function display() {
     })
   })
 }
-
-
 
 
 // list delete button 
